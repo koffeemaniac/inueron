@@ -32,31 +32,9 @@ for row in curr.columns(table='yearpart'):
     print("Column: ",row.column_name," , Data type: ",row.type_name,", Nullable: ",row.is_nullable)
 print("*"*100)
 
-curr.execute("select * from customers;")
-ls = curr.fetchall()
-for l in ls:
-    print(l)
-curr.execute("select * from orders;")
+curr.execute("select * from yearpart limit 10;")
 ls = curr.fetchall()
 for l in ls:
     print(l)
 #df = pd.read_sql("select * from tempo",conn)
 #print(df.head(10))
-
-
-curr.execute("use hiveassignment")
-curr.execute("select * from customers;")
-ls = curr.fetchall()
-for l in ls:
-    print(l)
-print("*"*100)
-curr.execute("select * from orders;")
-ls = curr.fetchall()
-for l in ls:
-    print(l)
-curr.execute("create table if not exists customers_who_shop as select c.id,c.name,c.address,c.salary,o.oid,o.date,o.amount from customers as c join orders as o on c.id = o.customer_id;")
-df = pd.read_sql("select * from customers_who_shop",conn)
-
-#for line in lines:
-#    print(line)
-print(df.head())
