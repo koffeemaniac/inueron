@@ -2,12 +2,13 @@
 pip install confluent-kafka
 pip install requests
 pip install pandas
+pip install jsonschema
 
 """
 import argparse
 from confluent_kafka import Producer
-#from confluent_kafka.serialization import StringSerializer,SerializationContext,MessageField
-#from confluent_kafka.schema_registry.json_schema import JSONSerializer
+from confluent_kafka.serialization import StringSerializer,SerializationContext,MessageField
+from confluent_kafka.schema_registry.json_schema import JSONSerializer
 
 
 """
