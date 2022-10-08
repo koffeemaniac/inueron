@@ -189,7 +189,7 @@ def main(topic):
     try:
         for car in get_car_instance(file_path=FILE_PATH):
             print(car)
-            #key=string_serializer("samekey",car_to_dict)
+            #key=string_serializer("kunal",car_to_dict)
             producer.produce(topic=topic,key=string_serializer(str(uuid4()),car_to_dict),
                              value=json_serializer(car,SerializationContext(topic,MessageField.VALUE)),
                              on_delivery = delivery_report)
