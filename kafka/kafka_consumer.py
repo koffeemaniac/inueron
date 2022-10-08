@@ -30,3 +30,6 @@ def schema_config():
     return {'url': ENDPOINT_SCHEMA_URL,
             'basic.auth.user.info': f"{SCHEMA_REGISTRY_API_KEY}:{SCHEMA_REGISTRY_API_SECRET}"
             }
+
+def main(topic):
+    consumer = Consumer(sasl_conf())
